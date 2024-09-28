@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.cinemaconnect" />
+                  <option name="mobileSdkAppId" value="1:237872293002:android:596de708a4ea6efbfe3973" />
+                  <option name="projectId" value="cinema-connect" />
+                  <option name="projectNumber" value="237872293002" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

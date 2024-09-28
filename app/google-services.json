@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "237872293002",
+    "firebase_url": "https://cinema-connect-default-rtdb.firebaseio.com",
+    "project_id": "cinema-connect",
+    "storage_bucket": "cinema-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237872293002:android:596de708a4ea6efbfe3973",
+        "android_client_info": {
+          "package_name": "com.example.cinemaconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnCS6VISTCOi7WfxBh5nfGTNMqNi655y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
