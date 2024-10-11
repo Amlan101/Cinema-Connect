@@ -1,5 +1,5 @@
 [versions]
-agp = "8.6.1"
+agp = "8.5.0"
 blurview = "version-2.0.5"
 chipNavigationBar = "1.4.0"
 glide = "4.16.0"

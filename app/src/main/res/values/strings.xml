@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Cinema Connect</string>
+    <string name="description_intro">Discover and book the latest movies</string>
+    <string name="title_intro">Cinema Connect</string>
 </resources>
