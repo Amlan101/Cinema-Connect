@@ -6,4 +6,6 @@
     <color name="black2">#28292b</color>
     <color name="orange">#d14706</color>
     <color name="grey">#989797</color>
+    <color name="light_grey">#d3d3d3</color>
+    <color name="dim_grey">#696969</color>
 </resources>
