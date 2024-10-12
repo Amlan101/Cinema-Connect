@@ -79,10 +79,13 @@
                 android:layout_height="200dp">
 
                 <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/sliderViewPager2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
