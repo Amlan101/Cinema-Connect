@@ -107,7 +107,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:id="@+id/topMoviesTxtView"
@@ -170,7 +171,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:id="@+id/upcomingMoviesTxtView"

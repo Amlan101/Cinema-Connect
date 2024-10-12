@@ -6,12 +6,15 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cinemaconnect.adapters.FilmListAdapter
 import com.example.cinemaconnect.adapters.SliderAdapter
 import com.example.cinemaconnect.databinding.ActivityMainBinding
+import com.example.cinemaconnect.models.Film
 import com.example.cinemaconnect.models.SliderItems
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -43,7 +46,69 @@ class MainActivity : AppCompatActivity() {
         )
 
         initBanner()
+        initTopMovies()
+        initUpcommingMovies()
 
+    }
+
+    private fun initTopMovies() {
+        val myRef: DatabaseReference = database.getReference("Items")
+        binding.progressBarTopMovies.visibility = View.VISIBLE
+        val films = ArrayList<Film>()
+
+        myRef.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(issue in snapshot.children){
+                        films.add(issue.getValue(Film::class.java)!!)
+                    }
+                    if(films.isNotEmpty()){
+                        binding.topMoviesRecyclerView.layoutManager = LinearLayoutManager(
+                            this@MainActivity,
+                            LinearLayoutManager.HORIZONTAL,
+                            false
+                        )
+                        binding.topMoviesRecyclerView.adapter = FilmListAdapter(films)
+                    }
+                    binding.progressBarTopMovies.visibility = View.GONE
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Firebase Error", error.message)
+            }
+
+        })
+    }
+
+    private fun initUpcommingMovies() {
+        val myRef: DatabaseReference = database.getReference("Upcomming")
+        binding.upcomingMoviesProgressBar.visibility = View.VISIBLE
+        val films = ArrayList<Film>()
+
+        myRef.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for(issue in snapshot.children){
+                        films.add(issue.getValue(Film::class.java)!!)
+                    }
+                    if(films.isNotEmpty()){
+                        binding.upcomingMoviesRecyclerView.layoutManager = LinearLayoutManager(
+                            this@MainActivity,
+                            LinearLayoutManager.HORIZONTAL,
+                            false
+                        )
+                        binding.upcomingMoviesRecyclerView.adapter = FilmListAdapter(films)
+                    }
+                    binding.upcomingMoviesProgressBar.visibility = View.GONE
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Firebase Error", error.message)
+            }
+
+        })
     }
 
     private fun initBanner() {
