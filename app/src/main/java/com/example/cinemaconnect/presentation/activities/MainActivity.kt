@@ -1,4 +1,4 @@
-package com.example.cinemaconnect
+package com.example.cinemaconnect.presentation.activities
 
 import android.os.Bundle
 import android.os.Handler
