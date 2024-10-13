@@ -1,6 +1,7 @@
 package com.example.cinemaconnect.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.cinemaconnect.databinding.FilmViewholderBinding
 import com.example.cinemaconnect.models.Film
+import com.example.cinemaconnect.presentation.activities.FilmDetailActivity
 import java.util.ArrayList
 
 class FilmListAdapter(private val filmList: ArrayList<Film>):
@@ -30,7 +32,9 @@ class FilmListAdapter(private val filmList: ArrayList<Film>):
                 .into(binding.picFilmImgView)
 
             binding.root.setOnClickListener {
-
+                val intent = Intent(context, FilmDetailActivity::class.java)
+                intent.putExtra("object", film)
+                context!!.startActivity(intent)
             }
         }
     }

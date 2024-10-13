@@ -105,7 +105,7 @@
                     <View
                         android:id="@+id/view"
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="3dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:background="@drawable/gradient_background" />
