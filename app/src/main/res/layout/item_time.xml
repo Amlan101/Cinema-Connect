@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/timeTxtView"
+    android:layout_width="wrap_content"
+    android:layout_height="33dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/light_black_background"
+    android:gravity="center"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:text="time"
+    android:textColor="@color/white">
+
+</TextView>
