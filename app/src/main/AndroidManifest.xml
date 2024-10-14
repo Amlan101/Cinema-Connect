@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CinemaConnect"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.activities.SeatListActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.activities.FilmDetailActivity"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
         </activity>
         <activity
             android:name=".presentation.activities.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
