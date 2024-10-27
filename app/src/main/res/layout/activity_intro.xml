@@ -36,10 +36,13 @@
                 android:textColor="@color/white"/>
 
             <ImageView
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                android:padding="2dp"
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@drawable/intro_logo" />
+                android:src="@drawable/intro_logo"/>
 
             <TextView
                 android:id="@+id/descTxtView"

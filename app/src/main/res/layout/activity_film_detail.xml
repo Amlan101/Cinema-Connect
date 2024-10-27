@@ -86,11 +86,13 @@
                             app:srcCompat="@drawable/share" />
 
                         <ImageView
-                            android:id="@+id/bookmarkBtnImgView"
+                            android:id="@+id/favoriteBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            app:srcCompat="@drawable/bookmark" />
+                            app:srcCompat="@drawable/btn_2"
+                            android:clickable="true"
+                            android:focusable="true"/>
 
                     </LinearLayout>
 

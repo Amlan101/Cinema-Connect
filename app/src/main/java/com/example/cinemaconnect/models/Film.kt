@@ -5,6 +5,7 @@ import android.os.Parcelable
 import kotlin.collections.ArrayList
 
 data class Film(
+    var firebaseId: String? = "",
     var Title: String? = null,
     var Description: String? = null,
     var Poster: String? = null,
@@ -22,6 +23,7 @@ data class Film(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
+        parcel.readString(),
         parcel.readInt(),
         parcel.readInt(),
         parcel.readDouble(),
@@ -31,6 +33,7 @@ data class Film(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(firebaseId)
         parcel.writeString(Title)
         parcel.writeString(Description)
         parcel.writeString(Poster)

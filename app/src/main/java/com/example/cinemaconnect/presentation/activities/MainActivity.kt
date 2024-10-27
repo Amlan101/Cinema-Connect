@@ -51,35 +51,40 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initTopMovies() {
-        val myRef: DatabaseReference = database.getReference("Items")
-        binding.progressBarTopMovies.visibility = View.VISIBLE
-        val films = ArrayList<Film>()
+        private fun initTopMovies() {
+            val myRef: DatabaseReference = database.getReference("Items")
+            binding.progressBarTopMovies.visibility = View.VISIBLE
+            val films = ArrayList<Film>()
 
-        myRef.addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    for(issue in snapshot.children){
-                        films.add(issue.getValue(Film::class.java)!!)
+            myRef.addListenerForSingleValueEvent(object: ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        for(issue in snapshot.children){
+                            val film = issue.getValue(Film::class.java)
+                            film?.firebaseId = issue.key ?: ""
+                            if (film != null) {
+                                films.add(film)
+                            }
+//                            films.add(issue.getValue(Film::class.java)!!)
+                        }
+                        if(films.isNotEmpty()){
+                            binding.topMoviesRecyclerView.layoutManager = LinearLayoutManager(
+                                this@MainActivity,
+                                LinearLayoutManager.HORIZONTAL,
+                                false
+                            )
+                            binding.topMoviesRecyclerView.adapter = FilmListAdapter(films)
+                        }
+                        binding.progressBarTopMovies.visibility = View.GONE
                     }
-                    if(films.isNotEmpty()){
-                        binding.topMoviesRecyclerView.layoutManager = LinearLayoutManager(
-                            this@MainActivity,
-                            LinearLayoutManager.HORIZONTAL,
-                            false
-                        )
-                        binding.topMoviesRecyclerView.adapter = FilmListAdapter(films)
-                    }
-                    binding.progressBarTopMovies.visibility = View.GONE
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("Firebase Error", error.message)
-            }
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Firebase Error", error.message)
+                }
 
-        })
-    }
+            })
+        }
 
     private fun initUpcommingMovies() {
         val myRef: DatabaseReference = database.getReference("Upcomming")

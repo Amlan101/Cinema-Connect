@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("com.google.devtools.ksp") version "1.9.21-1.0.15"
 }
 
 android {
@@ -60,4 +61,13 @@ dependencies {
 
     // Chip navigation dependency
     implementation(libs.chip.navigation.bar)
+
+    // RoomDB dependency
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // Viewmodel dependency
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
 }
