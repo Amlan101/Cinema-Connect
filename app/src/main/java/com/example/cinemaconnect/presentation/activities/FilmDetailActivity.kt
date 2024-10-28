@@ -19,6 +19,7 @@ import com.example.cinemaconnect.data.CinemaDatabase
 import com.example.cinemaconnect.databinding.ActivityFilmDetailBinding
 import com.example.cinemaconnect.factory.FavoritesViewModelFactory
 import com.example.cinemaconnect.models.Film
+import com.example.cinemaconnect.models.toFavoriteFilm
 import com.example.cinemaconnect.repository.FavoritesRepository
 import com.example.cinemaconnect.viewmodel.FavoritesViewModel
 import eightbitlab.com.blurview.RenderScriptBlur
@@ -70,7 +71,10 @@ class FilmDetailActivity : AppCompatActivity() {
 
                 if (isCurrentlyFavorite) {
                     // Remove from favorites and update the icon immediately
-                    favoritesViewModel.removeFavorite(film)
+                    val favoriteMovie = film.firebaseId?.let { film.toFavoriteFilm(movieId = it) }
+                    if (favoriteMovie != null) {
+                        favoritesViewModel.removeFavorite(favoriteMovie)
+                    }
                     binding.favoriteBtn.setImageResource(R.drawable.btn_2)
                 } else {
                     // Add to favorites and update the icon immediately

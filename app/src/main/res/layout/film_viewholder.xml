@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/black"
     android:layout_margin="4dp">
 
     <ImageView
@@ -25,7 +26,9 @@
         android:maxLines="2"
         android:text="Title"
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@color/white"
+        android:fontFamily="serif-monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/picFilmImgView"
         app:layout_constraintStart_toStartOf="@id/picFilmImgView"

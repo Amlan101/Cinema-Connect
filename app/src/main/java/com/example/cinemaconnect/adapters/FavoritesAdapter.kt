@@ -9,7 +9,8 @@ import com.example.cinemaconnect.models.FavoriteFilm
 
 class FavoritesAdapter(
     private val favoriteMovies: List<FavoriteFilm>,
-    private val onItemClick: (FavoriteFilm) -> Unit
+    private val onItemClick: (FavoriteFilm) -> Unit,
+    private val onItemRemoveClick: (FavoriteFilm) -> Unit
 ): RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder>() {
 
     inner class FavoritesViewHolder(private val binding: ItemFavoriteFilmBinding
@@ -23,6 +24,10 @@ class FavoritesAdapter(
 
             binding.root.setOnClickListener {
                 onItemClick(film)
+            }
+
+            binding.removeFavoriteButton.setOnClickListener {
+                onItemRemoveClick(film)
             }
         }
     }

@@ -21,7 +21,7 @@ class FavoritesViewModel(
         repository.addMovie(movie)
     }
 
-    fun removeFavorite(movie: Film) = viewModelScope.launch {
+    fun removeFavorite(movie: FavoriteFilm) = viewModelScope.launch {
         repository.removeMovie(movie)
     }
 

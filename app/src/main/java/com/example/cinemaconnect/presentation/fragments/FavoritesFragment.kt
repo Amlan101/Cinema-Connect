@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cinemaconnect.adapters.FavoritesAdapter
@@ -38,32 +40,29 @@ class FavoritesFragment : Fragment() {
         val factory = FavoritesViewModelFactory(requireActivity().application, repository)
         favoritesViewModel = ViewModelProvider(this, factory).get(FavoritesViewModel::class.java)
 
-        // Set up RecyclerView
-        binding.favouritesRecyclerView.layoutManager = GridLayoutManager(context, 2)
-        binding.favouritesRecyclerView.itemAnimator = SlideInLeftAnimator()
-
         // Observe the list of favorite movies
         favoritesViewModel.allFavorites.observe(viewLifecycleOwner){ favoriteMovies ->
-            binding.favouritesRecyclerView.adapter = FavoritesAdapter(favoriteMovies){ favoriteFilm ->
-                openFilmDetailActivity(favoriteFilm)
-            }
+
+            binding.favouritesRecyclerView.layoutManager = GridLayoutManager(context, 2)
+            binding.favouritesRecyclerView.itemAnimator = SlideInLeftAnimator()
+
+            // Set up the adapter with item and remove click listeners
+            binding.favouritesRecyclerView.adapter = FavoritesAdapter(
+                favoriteMovies,
+                onItemClick = { movie ->
+                    openFilmDetailActivity(movie)
+                },
+                onItemRemoveClick = { movie ->
+                    // Remove from favorites
+                    favoritesViewModel.removeFavorite(movie)
+                }
+            )
             binding.favoritesProgressBar.visibility = if (favoriteMovies.isEmpty()) View.VISIBLE else View.GONE
         }
-
         return binding.root
     }
 
     private fun openFilmDetailActivity(favoriteFilm: FavoriteFilm) {
-//        val intent = Intent(requireContext(), FilmDetailActivity::class.java).apply {
-//            putExtra("movieId", favoriteFilm.movieId)
-//            putExtra("title", favoriteFilm.title)
-//            putExtra("description", favoriteFilm.description)
-//            putExtra("poster", favoriteFilm.poster)
-//            putExtra("imdb", favoriteFilm.imdb)
-//            putExtra("year", favoriteFilm.year)
-//            putExtra("price", favoriteFilm.price)
-//        }
-//        startActivity(intent)
 
         val intent = Intent(requireContext(), FilmDetailActivity::class.java).apply {
             putExtra("object", favoriteFilm.toFilm())

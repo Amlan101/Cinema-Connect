@@ -3,14 +3,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black2"
     android:layout_margin="8dp"
     app:cardCornerRadius="10dp"
-    app:cardElevation="6dp">
+    app:cardElevation="8dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@color/black"
         android:padding="8dp">
 
         <ImageView
@@ -21,18 +22,29 @@
             android:contentDescription="Movie Poster" />
 
         <TextView
+            android:layout_below="@id/favoriteMoviePoster"
             android:id="@+id/favoriteMovieTitle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
-            android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@android:color/white"
+            android:text="Title"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:fontFamily="monospace"/>
+            android:gravity="center"
+            android:fontFamily="serif-monospace"/>
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/removeFavoriteButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_remove_circle_outline_24"/>
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

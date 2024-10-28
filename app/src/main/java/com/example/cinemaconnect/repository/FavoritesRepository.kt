@@ -17,11 +17,8 @@ class FavoritesRepository(private val favoritesDao: FavoritesDao) {
         }
     }
 
-    suspend fun removeMovie(movie: Film) {
-        val favoriteMovie = movie.firebaseId?.let { movie.toFavoriteFilm(movieId = it) }
-        if (favoriteMovie != null) {
-            favoritesDao.removeMovieFromFavorites(favoriteMovie)
-        }
+    suspend fun removeMovie(movie: FavoriteFilm) {
+        favoritesDao.removeMovieFromFavorites(movie)
     }
 
     suspend fun isFavorite(movieId: String): Boolean {
