@@ -14,6 +14,7 @@ fun Film.toFavoriteFilm(movieId: String): FavoriteFilm {
 
 fun FavoriteFilm.toFilm(): Film {
     return Film(
+        firebaseId = this.movieId,
         Title = this.title,
         Description = this.description,
         Poster = this.poster,

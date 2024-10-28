@@ -70,4 +70,7 @@ dependencies {
     // Viewmodel dependency
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
+    // Recycler View Animations dependency
+    implementation (libs.recyclerview.animators)
+
 }

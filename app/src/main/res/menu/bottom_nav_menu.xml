@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/explorer"
+    <item android:id="@+id/nav_explorer"
         android:icon="@drawable/btn_1"
         android:title="Explorer"
         app:cnb_backgroundColor = "@color/orange"
         app:cnb_iconColor = "@color/white"/>
-    <item android:id="@+id/favourite"
+    <item android:id="@+id/nav_favourite"
         android:icon="@drawable/btn_2"
         android:title="Favourite"
         app:cnb_backgroundColor = "@color/orange"
         app:cnb_iconColor = "@color/white"/>
-    <item android:id="@+id/cart"
+    <item android:id="@+id/nav_cart"
         android:icon="@drawable/btn_3"
         android:title="Cart"
         app:cnb_backgroundColor = "@color/orange"
         app:cnb_iconColor = "@color/white"/>
-    <item android:id="@+id/profile"
+    <item android:id="@+id/nav_profile"
         android:icon="@drawable/btn_4"
         android:title="Profile"
         app:cnb_backgroundColor = "@color/orange"

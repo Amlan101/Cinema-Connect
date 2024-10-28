@@ -34,6 +34,8 @@ class FilmDetailActivity : AppCompatActivity() {
         binding = ActivityFilmDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        film = intent.getParcelableExtra("object")!!
+
         val favoritesDao = CinemaDatabase.getDatabase(application).favoritesDao()
         val repository = FavoritesRepository(favoritesDao)
         val factory = FavoritesViewModelFactory(application, repository)
@@ -51,7 +53,6 @@ class FilmDetailActivity : AppCompatActivity() {
     }
 
     private fun setFavorites() {
-        film = intent.getParcelableExtra("object")!!
 
         // Observe the initial favorite state and update the icon accordingly
         film.firebaseId?.let { movieId ->
@@ -81,7 +82,7 @@ class FilmDetailActivity : AppCompatActivity() {
     }
 
     private fun setVariable() {
-        val item: Film = intent.getParcelableExtra("object")!!
+        val item = film
         val requestOptions =
             RequestOptions()
                 .transform(CenterCrop(), GranularRoundedCorners(0f, 0f, 50f, 50f))
