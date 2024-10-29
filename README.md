@@ -21,37 +21,24 @@ A modern user-friendly movie ticket booking platform that allows users to explor
 
 ### App Overview
 
-| **Intro Screen** |
-|-------------------|
-| ![Intro Screen](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect-Intro_page.png?alt=media&token=c7ac99ff-6c1a-4878-8835-ad262e36c456) |
-| *The introductory screen showcasing the app's branding.* |
-
-| **Home Page** |
-|---------------|
-| ![Home Page](https://drive.google.com/file/d/1JcSnzkXoDMZ0EXmc1YX5HDHebyfczYNe/view?usp=drive_link) |
-| *The home page displaying featured movies.* |
-
-| **Movie Details** |
-|--------------------|
-| ![Movie Details](https://drive.google.com/file/d/1NTzSVwWP8WDYi2XpCYJHtAbaq9RXC3US/view?usp=drive_link) |
-| *Detailed view of a selected movie.* |
+| **Intro Screen** | **Home Page** |
+|-------------------|---------------|
+| ![Intro Screen](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect-Intro_page.png?alt=media&token=c7ac99ff-6c1a-4878-8835-ad262e36c456) | ![Home Page](https://i.imgur.com/SxoeWNk.png) |
+| *The introductory screen showcasing the app's branding.* | *The home page displaying featured movies.* |
 
 ### Additional Features
 
-| **Seat Selection** |
-|---------------------|
-| ![Seat Selection](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect_Seat-Selection.png?alt=media&token=d6bc6db8-9b6e-4e11-8c6f-10f6c76e78f7) |
-| *Selecting seats for a movie.* |
+| **Movie Details** | **Seat Selection** |
+|--------------------|---------------------|
+| ![Movie Details](https://i.imgur.com/3wMSnvY.png) | ![Seat Selection](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect_Seat-Selection.png?alt=media&token=d6bc6db8-9b6e-4e11-8c6f-10f6c76e78f7) |
+| *Detailed view of a selected movie.* | *Selecting seats for a movie.* |
 
-| **Favorites Page** |
-|---------------------|
-| ![Favorites Page](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect_Favorites-Page.png?alt=media&token=ea5f4c5c-771f-4805-9e64-2fc2e3dfa0f2) |
-| *The page where users can view their favorite films.* |
+### More Features
 
-| **Share Sheet** |
-|------------------|
-| ![Share Sheet](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect-Share_Sheet.jpg?alt=media&token=23ef2780-dee4-4c91-bb36-06dc37fb7448) |
-| *Sharing options for movies.* |
+| **Favorites Page** | **Share Sheet** |
+|---------------------|------------------|
+| ![Favorites Page](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect_Favorites-Page.png?alt=media&token=ea5f4c5c-771f-4805-9e64-2fc2e3dfa0f2) | ![Share Sheet](https://firebasestorage.googleapis.com/v0/b/cinema-connect.appspot.com/o/GitHub%20essentials%2FCinema-Connect-Share_Sheet.jpg?alt=media&token=23ef2780-dee4-4c91-bb36-06dc37fb7448) |
+| *The page where users can view their favorite films.* | *Sharing options for movies.* |
 
 ## 🚀 Installation
 
