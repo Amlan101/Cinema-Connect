@@ -78,12 +78,14 @@
 
 
                         <ImageView
-                            android:id="@+id/shareBtnImgView"
+                            android:id="@+id/shareBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginEnd="16dp"
-                            app:srcCompat="@drawable/share" />
+                            app:srcCompat="@drawable/share"
+                            android:clickable="true"
+                            android:focusable="true"/>
 
                         <ImageView
                             android:id="@+id/favoriteBtn"

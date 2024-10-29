@@ -1,7 +1,11 @@
 package com.example.cinemaconnect.presentation.activities
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.view.WindowManager
@@ -12,6 +16,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.cinemaconnect.R
 import com.example.cinemaconnect.adapters.CastListAdapter
 import com.example.cinemaconnect.adapters.CategoryEachFilmAdapter
@@ -23,6 +29,7 @@ import com.example.cinemaconnect.models.toFavoriteFilm
 import com.example.cinemaconnect.repository.FavoritesRepository
 import com.example.cinemaconnect.viewmodel.FavoritesViewModel
 import eightbitlab.com.blurview.RenderScriptBlur
+import java.io.ByteArrayOutputStream
 
 class FilmDetailActivity : AppCompatActivity() {
 
@@ -51,6 +58,62 @@ class FilmDetailActivity : AppCompatActivity() {
 
         setVariable()
         setFavorites()
+
+        binding.shareBtn.setOnClickListener {
+            shareMovieDetails()
+        }
+    }
+
+    private fun shareMovieDetails() {
+        val shareMessage = """
+            Check out this movie:
+            
+            Title: ${film.Title}
+            Description: ${film.Description}
+            IMDb Rating: ${film.Imdb}/10
+            Year: ${film.Year}
+
+            #CinemaConnect
+        """.trimIndent()
+
+        Glide.with(this)
+            .asBitmap()
+            .load(film.Poster)
+            .into(
+                object : CustomTarget<Bitmap>(SIZE_ORIGINAL, SIZE_ORIGINAL){
+                    override fun onResourceReady(
+                        resource: Bitmap,
+                        transition: Transition<in Bitmap>?
+                    ) {
+                        // Convert Bitmap to URI
+                        val imageUri = getImageUriFromBitmap(resource)
+
+                        // Setting up the share intent
+                        val shareIntent = Intent().apply {
+                            action = Intent.ACTION_SEND
+                            putExtra(Intent.EXTRA_TEXT, shareMessage)
+                            putExtra(Intent.EXTRA_STREAM, imageUri)
+                            type = "image/*"
+                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        }
+
+                        // Launching the share sheet
+                        startActivity(Intent.createChooser(shareIntent, "Share movie via"))
+                    }
+
+                    override fun onLoadCleared(placeholder: Drawable?) {
+
+                    }
+
+                }
+            )
+    }
+
+    private fun getImageUriFromBitmap(bitmap: Bitmap): Uri? {
+        val bytes = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(contentResolver, bitmap, "Movie Poster", null)
+        return Uri.parse(path)
     }
 
     private fun setFavorites() {
