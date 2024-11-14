@@ -23,13 +23,18 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="48dp">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/profileImgView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    android:padding="4dp"
+                    android:src="@drawable/profile_1"
+                    app:shapeAppearanceOverlay="@style/CircleImageView"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/profile" />
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:id="@+id/welcomeTxtView"
@@ -37,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="monospace"
-                    android:text="Hello Amlan Sahoo"
+                    android:text="Hello Amlan"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold"
