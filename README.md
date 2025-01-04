@@ -53,7 +53,7 @@ A modern user-friendly movie ticket booking platform that allows users to explor
 4. **Sync Project:**
 - Run a Gradle sync in Android Studio to download dependencies.
 5. **Download APK** *(optional)*:
- - If you want to quickly test the app without setup, download the APK from [here](https://drive.google.com/file/d/1jUPdtKY1115D8FsmkuKs_5vNzEu-fIA4/view?usp=drive_link).
+ - If you want to quickly test the app without setup, download the APK from [here](https://drive.google.com/file/d/1W7o5EAKzOuWyiEBgY1iIRjPG7n4lPfgX/view?usp=sharing).
 ## 🛠️ Tech Stack
 
 - **Kotlin** - Main programming language for Android development
